@@ -1,0 +1,149 @@
+.title {
+  margin-bottom: 2rem;
+}
+.bg {
+  background-image: url("/images/destination/background-destination-mobile.jpg");
+}
+
+.container {
+  padding: 0 theme("container.padding.DEFAULT");
+}
+.half {
+  flex-grow: 1;
+  display: flex;
+  align-items: flex-end;
+  justify-content: center;
+
+  > div {
+    width: 100%;
+    height: max-content;
+    max-width: 22.3875rem;
+  }
+}
+
+.image {
+  width: 10.625rem;
+  margin: 0 auto;
+}
+
+/* <Animation> */
+.imageAnimEnter {
+  transition: transform 0.6s ease-out, opacity 0.6s ease-in;
+  transform: scale(0.75) rotate(19deg);
+  opacity: 0;
+}
+.imageAnimEnterActive {
+  transform: none;
+  opacity: 1;
+}
+
+.textAnimEnter {
+  transition: transform 0.6s ease-out, opacity 0.6s ease-in;
+  transform: scale(0.85);
+  opacity: 0;
+}
+.textAnimEnterActive {
+  transform: none;
+  opacity: 1;
+}
+/* </Animation> */
+
+.menu {
+  z-index: 0;
+  height: 1.75rem;
+  margin-bottom: 1.25rem;
+  margin-top: 1.625rem;
+  font-size: theme("fontSize.14");
+  letter-spacing: theme("letterSpacing[2.35]");
+  max-width: 15rem;
+
+  &Item {
+    height: 100%;
+    position: relative;
+    cursor: pointer;
+
+    &::after {
+      content: "";
+      position: absolute;
+      bottom: 0;
+      left: 0;
+      width: 100%;
+      height: 0.1875rem;
+      background-color: theme("colors.white");
+      opacity: 0;
+      transition: opacity 600ms;
+    }
+    
+    &:hover::after {
+      transition: opacity 300ms;
+      opacity: 0.5;
+    }
+    
+    &:global(.active)::after {
+      opacity: 1;
+    }
+  }
+}
+
+@screen sm {
+  .title {
+    margin-bottom: 4.2rem;
+  }
+  .bg {
+    background-image: url("/images/destination/background-destination-tablet.jpg");
+  }
+
+  .half {
+    > div {
+      max-width: 35.8125rem;
+    }
+  }
+
+  .image {
+    width: 18.75rem;
+  }
+
+  .menu {
+    height: 2.125rem;
+    margin-bottom: 2rem;
+    margin-top: 3.3125rem;
+    font-size: theme("fontSize.16");
+    letter-spacing: theme("letterSpacing[2.7]");
+    max-width: 17.84375rem;
+  }
+}
+
+@screen lg {
+  .bg {
+    background-image: url("/images/destination/background-destination-desktop.jpg");
+  }
+
+  .container {
+    max-width: 1120px;
+  }
+  .half {
+    &:first-child {
+      justify-content: flex-start;
+    }
+    &:last-child {
+      justify-content: flex-end;
+    }
+
+    > div {
+      max-width: 27.8125rem;
+    }
+  }
+
+  .image {
+    width: 27.8125rem;
+  }
+
+  .textAnimEnter {
+    transform-origin: left top;
+  }
+
+  .menu {
+    margin-bottom: 2.3125rem;
+    margin-top: 0;
+  }
+}

@@ -1,0 +1,23 @@
+.primaryPageTitle {
+  max-width: 1162px;
+  padding: 0 1.7rem;
+  color: theme('colors.white');
+
+  :global(.number) {
+    padding-right: 1.25rem;
+    color: to-rgba(theme("colors.white"), 0.25);
+  }
+}
+
+@screen sm {
+  .primaryPageTitle {
+    margin-top: 2.5rem;
+  }
+}
+
+@screen lg {
+  .primaryPageTitle {
+    margin-top: 4.75rem;
+  }
+}
+

@@ -1,0 +1,175 @@
+.bg {
+  background-image: url("/images/crew/background-crew-mobile.jpg");
+}
+.container {
+  padding: 0 theme("container.padding.DEFAULT");
+  max-width: 1162px;
+  margin-top: 2rem;
+}
+
+.heading {
+  margin-top: 0.62rem;
+}
+.paragraph {
+  max-width: 20.4375rem;
+  color: theme("colors.blue");
+  margin: 0 auto;
+  margin-top: 1.24rem;
+  text-transform: none;
+}
+
+.circles {
+  width: 5.5rem;
+  height: 0.625rem;
+
+  > button {
+    width: 11.363636363636363%;
+    height: 100%;
+    background-color: theme("colors.white");
+    opacity: 0.17;
+    border-radius: 50%;
+    cursor: pointer;
+    transition: opacity 0.6s;
+
+    &:hover {
+      transition: opacity 0.3s;
+      opacity: 0.5;
+    }
+
+    &:global(.active) {
+      opacity: 1;
+    }
+  }
+}
+
+@mixin breakpoint-down theme('screens.sm') {
+  .imageCon {
+    border-bottom: 1px solid to-rgba(theme("colors.white"), 0.25);
+    overflow: hidden;
+    .image {
+      height: 13.875rem;
+    }
+    &.hurley > .image {
+      height: 14.875rem;
+      margin-bottom: -1rem;
+    }
+  }
+}
+
+/* <Animation> */
+.imageAnimEnter {
+  transition: transform 0.6s ease-out, opacity 0.6s ease-in;
+  transform: translateY(4.75rem) scale(0.8);
+  opacity: 0;
+}
+.imageAnimEnterActive {
+  transform: none !important;
+  opacity: 1;
+}
+
+.textAnimEnter {
+  transition: transform 0.6s ease-out, opacity 0.6s ease-in;
+  transform: scale(0.8);
+  transform-origin: center center;
+  opacity: -1;
+}
+.textAnimEnterActive {
+  transform: none;
+  opacity: 1;
+}
+/* </Animation> */
+
+@screen sm {
+  .bg {
+    background-image: url("/images/crew/background-crew-tablet.jpg");
+  }
+  .container {
+    margin-top: 3.75rem;
+  }
+
+  .textCon {
+    height: 13.875rem;
+  }
+  .heading {
+    margin-top: 1.25rem;
+  }
+
+  .imageCon {
+    margin-top: 2.5rem;
+    border-bottom: none;
+    .image {
+      height: 33.25rem;
+    }
+  }
+
+  .imageAnimEnter {
+    transform: translateY(24.0601%) scale(0.8);
+  }
+
+  .paragraph {
+    &.hurley {
+      max-width: 28.75rem;
+    }
+    &.shuttleworth {
+      max-width: 32.5rem;
+    }
+    &.glover {
+      max-width: 37rem;
+    }
+    &.ansari {
+      max-width: 32rem;
+    }
+  }
+}
+
+@screen lg {
+  .bg {
+    background-image: url("/images/crew/background-crew-desktop.jpg");
+  }
+  .container {
+    margin-top: 9.625rem;
+  }
+
+  .textCon {
+    height: 23.85rem;
+  }
+  .heading {
+    max-width: 55vw;
+  }
+  .paragraph {
+    max-width: 27.75rem !important;
+    margin: 0;
+    margin-top: 1.5rem;
+    &.ansari {
+      max-width: 26.5rem !important;
+    }
+  }
+
+  .circles {
+    width: 8.25rem;
+    height: 0.9375rem;
+  }
+
+  .imageCon {
+    position: absolute;
+    bottom: 0;
+    left: 50vw;
+    height: max-content;
+    .image {
+      height: 75vh;
+      max-height: 42.1875rem;
+      min-height: 34.078125rem;
+    }
+    &.hurley,
+    &.shuttleworth {
+      left: 54vw;
+    }
+  }
+
+  .imageAnimEnter {
+    transform: translate(8vh, 17.77vh) scale(0.8);
+  }
+  .textAnimEnter {
+    transform-origin: left top;
+  }
+}
