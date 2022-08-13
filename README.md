@@ -32,8 +32,8 @@ Users should be able to:
 
 ### Links
 
-- Solution: [at Frontend Mentor](https://your-solution-url.com)
-- Live Site: [hosted on Vercel](https://your-live-site-url.com)
+- Solution: [at Frontend Mentor](https://www.frontendmentor.io/solutions/space-tourism-website-with-nextjs-and-tailwindcss-qgIuCdMidQ)
+- Live Site: [hosted on Vercel](https://space-tourism-website-murex.vercel.app)
 
 ## My process
 
