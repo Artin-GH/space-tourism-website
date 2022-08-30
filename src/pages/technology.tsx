@@ -5,32 +5,20 @@ import Layout from "../components/Layout";
 import PrimaryPageTitle from "../components/PrimaryPageTitle";
 import range from "../utils/range";
 import styles from "../styles/pages/Technology.module.css";
-import useWindowSize from "../hooks/useWindowSize";
-import breakpoints from "../utils/breakpoints";
-import NextImage from "next/image";
-
-async function cacheImages(imageSrcs: string[]) {
-  const promises = await imageSrcs.map((src) => {
-    return new Promise(function (resolve, reject) {
-      const img = NextImage({src: src, onLoad: resolve, onError: reject, layout: "fill"});
-    });
-  });
-
-  await Promise.all(promises);
-}
+import Image from "next/image";
 
 const Home: NextPage = () => {
   const [index, setIndex] = useState(0);
   const tech = techs[index];
-  const windowWidth = useWindowSize().width;
-  const images = {
-    portraits: techs.map((tech) => tech.images.portrait),
-    landscape: techs.map((tech) => tech.images.landscape),
-  };
-  cacheImages(images.portraits.concat(images.landscape));
+  const images = techs
+    .map((tech) => tech.images.portrait)
+    .concat(techs.map((tech) => tech.images.landscape));
 
   return (
     <Layout bgClass={styles.bg} className="">
+      {images.map((image, i) => (
+        <Image src={image} width={0} height={0} key={i} />
+      ))}
       <PrimaryPageTitle className="!max-w-[1290px] mr-0 !px-4">
         <span className="number">3</span>
         SPACE LAUNCH 101
@@ -73,16 +61,22 @@ const Home: NextPage = () => {
         <div className="lg:order-none -order-1">
           <Animation id={index}>
             <div className={`${styles.image} relative lg:max-w-[42.5vw]`}>
-              <NextImage
-                src={
-                  windowWidth < breakpoints.lg
-                    ? tech.images.landscape
-                    : tech.images.portrait
-                }
-                layout="fill"
-                objectFit="cover"
-                objectPosition="center"
-              />
+              <div className="hidden lg:block">
+                <Image
+                  src={tech.images.portrait}
+                  layout="fill"
+                  objectFit="cover"
+                  objectPosition="center"
+                />
+              </div>
+              <div className="lg:hidden block">
+                <Image
+                  src={tech.images.landscape}
+                  layout="fill"
+                  objectFit="cover"
+                  objectPosition="center"
+                />
+              </div>
             </div>
           </Animation>
         </div>
