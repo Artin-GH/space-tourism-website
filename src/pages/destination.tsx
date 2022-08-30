@@ -1,11 +1,17 @@
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import { CSSTransition, TransitionGroup } from "react-transition-group";
 import { NextPage } from "next";
 import Layout from "../components/Layout";
 import styles from "../styles/pages/Destinations.module.css";
 import PrimaryPageTitle from "../components/PrimaryPageTitle";
+import cacheImages from "../utils/cacheImages";
 
 const Destinations: NextPage = () => {
+  useEffect(() => {
+    const imageSrcs = destinations.map((dest) => dest.images.png);
+    cacheImages(imageSrcs);
+  }, [])
+
   return (
     <Layout className={`text-white pb-2.5`} bgClass={styles.bg}>
       <PrimaryPageTitle className={styles.title}>
