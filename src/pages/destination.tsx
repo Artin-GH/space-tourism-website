@@ -8,7 +8,7 @@ import cacheImages from "../utils/cacheImages";
 
 const Destinations: NextPage = () => {
   useEffect(() => {
-    const imageSrcs = destinations.map((dest) => dest.images.png);
+    const imageSrcs = destinations.map((dest) => dest.images.webp);
     cacheImages(imageSrcs);
   }, [])
 
@@ -37,7 +37,7 @@ const Destination = () => {
       <div className={`${styles.half}`}>
         <div>
           <ImageAnim index={index}>
-            <img src={destination.images.png} className={`${styles.image}`} />
+            <img src={destination.images.webp} className={`${styles.image}`} />
           </ImageAnim>
         </div>
       </div>

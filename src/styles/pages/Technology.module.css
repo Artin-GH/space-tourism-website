@@ -67,10 +67,6 @@
     width: 3.75rem;
     height: 3.75rem;
   }
-
-  .image {
-    height: unset;
-  }
 }
 
 @screen lg {
@@ -103,5 +99,10 @@
 
   .animEnter {
     transform-origin: left top;
+  }
+
+  .image {
+    width: 529.4px;
+    height: 521.733px;
   }
 }

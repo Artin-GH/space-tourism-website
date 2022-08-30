@@ -1,5 +1,5 @@
 import { NextPage } from "next";
-import { ReactElement, useState } from "react";
+import { ReactElement, useEffect, useState } from "react";
 import { TransitionGroup, CSSTransition } from "react-transition-group";
 import Layout from "../components/Layout";
 import PrimaryPageTitle from "../components/PrimaryPageTitle";
@@ -7,11 +7,20 @@ import range from "../utils/range";
 import styles from "../styles/pages/Technology.module.css";
 import useWindowSize from "../hooks/useWindowSize";
 import breakpoints from "../utils/breakpoints";
+import cacheImages from "../utils/cacheImages";
+import Image from "next/image";
 
 const Home: NextPage = () => {
   const [index, setIndex] = useState(0);
   const tech = techs[index];
   const windowWidth = useWindowSize().width;
+
+  useEffect(() => {
+    const portraitSrcs = techs.map((tech) => tech.images.portrait);
+    const landscapeSrcs = techs.map((tech) => tech.images.landscape);
+    const imageSrcs = portraitSrcs.concat(landscapeSrcs);
+    cacheImages(imageSrcs);
+  }, []);
 
   return (
     <Layout bgClass={styles.bg} className="">
@@ -55,15 +64,19 @@ const Home: NextPage = () => {
           </div>
         </div>
         <div className="lg:order-none -order-1">
-          <Animation id={index} className="w-full lg:mx-0 mx-auto">
-            <img
-              src={`${
-                windowWidth < breakpoints.lg
-                  ? tech.images.landscape
-                  : tech.images.portrait
-              }`}
-              className={styles.image}
-            />
+          <Animation id={index}>
+            <div className={`${styles.image} relative lg:max-w-[42.5vw]`}>
+              <Image
+                src={
+                  windowWidth < breakpoints.lg
+                    ? tech.images.landscape
+                    : tech.images.portrait
+                }
+                layout="fill"
+                objectFit="cover"
+                objectPosition="center"
+              />
+            </div>
           </Animation>
         </div>
       </div>

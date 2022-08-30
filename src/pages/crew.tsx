@@ -9,7 +9,7 @@ import cacheImages from "../utils/cacheImages";
 
 const Crew: NextPage = () => {
   useEffect(() => {
-    const imageSrcs = crew.map((crewMember) => crewMember.images.png);
+    const imageSrcs = crew.map((crewMember) => crewMember.images.webp);
     cacheImages(imageSrcs);
   }, [])
 
@@ -84,7 +84,7 @@ const CrewMember = () => {
           className={`${styles.imageCon} ${styles[member.cls]}`}
         >
           <img
-            src={member.images.png}
+            src={member.images.webp}
             className={`${styles.image} lg:mx-0 mx-auto max-w-none`}
           />
         </ImageTransition>
