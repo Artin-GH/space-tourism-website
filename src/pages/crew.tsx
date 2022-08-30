@@ -5,8 +5,14 @@ import range from "../utils/range";
 import Layout from "../components/Layout";
 import PrimaryPageTitle from "../components/PrimaryPageTitle";
 import styles from "../styles/pages/Crews.module.css";
+import cacheImages from "../utils/cacheImages";
 
 const Crew: NextPage = () => {
+  useEffect(() => {
+    const imageSrcs = crew.map((crewMember) => crewMember.images.png);
+    cacheImages(imageSrcs);
+  }, [])
+
   return (
     <Layout
       bgClass={styles.bg}
