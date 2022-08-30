@@ -17,7 +17,7 @@ const Home: NextPage = () => {
   return (
     <Layout bgClass={styles.bg} className="">
       {images.map((image, i) => (
-        <Image src={image} width={0} height={0} key={i} />
+        <Image src={image} width={0} height={0} key={i} priority />
       ))}
       <PrimaryPageTitle className="!max-w-[1290px] mr-0 !px-4">
         <span className="number">3</span>
