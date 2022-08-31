@@ -46,14 +46,15 @@ const Destination = () => {
                         lg:m-0 mx-auto`}
           >
             {destinations.map((item, i) => (
-              <Fragment>
+              <Fragment key={i}>
                 <PreloadImage src={item.images.webp} />
                 <li
-                  className={`${styles.menuItem} ${i === index ? "active" : ""}`}
+                  className={`${styles.menuItem} ${
+                    i === index ? "active" : ""
+                  }`}
                   onClick={() => {
                     setIndex(i);
                   }}
-                  key={i}
                 >
                   {item.name}
                 </li>
