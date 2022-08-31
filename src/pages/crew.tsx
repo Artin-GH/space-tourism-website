@@ -1,5 +1,5 @@
 import { NextPage } from "next";
-import { ReactElement, useEffect, useState } from "react";
+import { Fragment, ReactElement, useEffect, useState } from "react";
 import { CSSTransition, TransitionGroup } from "react-transition-group";
 import range from "../utils/range";
 import Layout from "../components/Layout";
@@ -42,23 +42,21 @@ const CrewMember = () => {
       <div className="flex flex-col">
         <div className={styles.textCon}>
           <TextTransition id={index}>
-            <h2 className="heading-4 text-white text-opacity-50">
-              {member.role}
-            </h2>
-          </TextTransition>
-          <TextTransition id={index}>
-            <h1 className={`heading-3 text-white ${styles.heading}`}>
-              {member.name}
-            </h1>
-          </TextTransition>
-          <TextTransition id={index}>
-            <p
-              className={`${styles.paragraph} ${
-                styles[member.cls]
-              }`}
-            >
-              {member.bio}
-            </p>
+            <div>
+              <h2 className="heading-4 text-white text-opacity-50">
+                {member.role}
+              </h2>
+              <h1 className={`heading-3 text-white ${styles.heading}`}>
+                {member.name}
+              </h1>
+              <p
+                className={`${styles.paragraph} ${
+                  styles[member.cls]
+                }`}
+              >
+                {member.bio}
+              </p>
+            </div>
           </TextTransition>
         </div>
         <div
