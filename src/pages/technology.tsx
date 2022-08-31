@@ -14,8 +14,8 @@ const Home: NextPage = () => {
   return (
     <Layout bgClass={styles.bg} className="">
       <div className="relative w-0 h-0 hidden">
-        {techs.map((tech) => (
-          <Fragment>
+        {techs.map((tech, i) => (
+          <Fragment key={i}>
             <Image src={tech.images.portrait} layout="fill" priority />
             <Image src={tech.images.landscape} layout="fill" priority />
           </Fragment>
