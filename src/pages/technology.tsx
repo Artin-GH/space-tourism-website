@@ -1,5 +1,5 @@
 import { NextPage } from "next";
-import { ReactElement, useEffect, useState } from "react";
+import { Fragment, ReactElement, useState } from "react";
 import { TransitionGroup, CSSTransition } from "react-transition-group";
 import Layout from "../components/Layout";
 import PrimaryPageTitle from "../components/PrimaryPageTitle";
@@ -13,18 +13,26 @@ const Home: NextPage = () => {
 
   return (
     <Layout bgClass={styles.bg} className="">
+      <div className="relative w-0 h-0 hidden">
+        {techs.map((tech) => (
+          <Fragment>
+            <Image src={tech.images.portrait} layout="fill" priority />
+            <Image src={tech.images.landscape} layout="fill" priority />
+          </Fragment>
+        ))}
+      </div>
       <PrimaryPageTitle className="!max-w-[1290px] mr-0 !px-4">
         <span className="number">3</span>
         SPACE LAUNCH 101
       </PrimaryPageTitle>
       <div
         className={`${styles.container} flex justify-between lg:flex-row flex-col
-                      items-stretch text-white lg:text-left text-center`}
+                        items-stretch text-white lg:text-left text-center`}
       >
         <div className="lg:flex justify-between mt-[2.125rem] sm:mt-14 lg:mt-0">
           <div
             className="flex lg:flex-col justify-between lg:h-[18.2625rem] xl:mr-20
-                       lg:mr-12 w-[9.5rem] sm:w-[13.125rem] lg:w-fit lg:mx-0 mx-auto"
+                         lg:mr-12 w-[9.5rem] sm:w-[13.125rem] lg:w-fit lg:mx-0 mx-auto"
           >
             {range(techs.length).map((i) => (
               <div
