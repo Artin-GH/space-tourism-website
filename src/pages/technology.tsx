@@ -1,5 +1,5 @@
 import { NextPage } from "next";
-import { Fragment, ReactElement, useState } from "react";
+import { Fragment, ReactElement, useEffect, useState } from "react";
 import { TransitionGroup, CSSTransition } from "react-transition-group";
 import Layout from "../components/Layout";
 import PrimaryPageTitle from "../components/PrimaryPageTitle";
@@ -16,8 +16,8 @@ const Home: NextPage = () => {
       <div className="relative w-0 h-0 hidden">
         {techs.map((tech, i) => (
           <Fragment key={i}>
-            <Image src={tech.images.portrait} layout="fill" priority />
-            <Image src={tech.images.landscape} layout="fill" priority />
+            <Image src={tech.images.portrait} layout="fill" priority quality={0} />
+            <Image src={tech.images.landscape} layout="fill" priority quality={0} />
           </Fragment>
         ))}
       </div>
