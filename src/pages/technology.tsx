@@ -13,7 +13,7 @@ const Home: NextPage = () => {
 
   return (
     <Layout bgClass={styles.bg} className="">
-      <div className="relative w-0 h-0 hidden">
+      <div className="relative hidden">
         {techs.map((tech, i) => (
           <Fragment key={i}>
             <Image src={tech.images.portrait} layout="fill" priority quality={0} />
