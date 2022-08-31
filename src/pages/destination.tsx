@@ -1,17 +1,12 @@
-import { useEffect, useState } from "react";
+import { Fragment, useEffect, useState } from "react";
 import { CSSTransition, TransitionGroup } from "react-transition-group";
 import { NextPage } from "next";
 import Layout from "../components/Layout";
 import styles from "../styles/pages/Destinations.module.css";
 import PrimaryPageTitle from "../components/PrimaryPageTitle";
-import cacheImages from "../utils/cacheImages";
+import PreloadImage from "../components/PreloadImage";
 
 const Destinations: NextPage = () => {
-  useEffect(() => {
-    const imageSrcs = destinations.map((dest) => dest.images.webp);
-    cacheImages(imageSrcs);
-  }, []);
-
   return (
     <Layout
       className={`text-white pb-2.5`}
@@ -51,15 +46,18 @@ const Destination = () => {
                         lg:m-0 mx-auto`}
           >
             {destinations.map((item, i) => (
-              <li
-                className={`${styles.menuItem} ${i === index ? "active" : ""}`}
-                onClick={() => {
-                  setIndex(i);
-                }}
-                key={i}
-              >
-                {item.name}
-              </li>
+              <Fragment>
+                <PreloadImage src={item.images.webp} />
+                <li
+                  className={`${styles.menuItem} ${i === index ? "active" : ""}`}
+                  onClick={() => {
+                    setIndex(i);
+                  }}
+                  key={i}
+                >
+                  {item.name}
+                </li>
+              </Fragment>
             ))}
           </ul>
           <TextAnim index={index}>

@@ -1,18 +1,16 @@
 import { NextPage } from "next";
-import { Fragment, ReactElement, useEffect, useState } from "react";
+import { ReactElement, useState } from "react";
 import { CSSTransition, TransitionGroup } from "react-transition-group";
 import range from "../utils/range";
 import Layout from "../components/Layout";
 import PrimaryPageTitle from "../components/PrimaryPageTitle";
 import styles from "../styles/pages/Crews.module.css";
-import cacheImages from "../utils/cacheImages";
+import Image from "next/image";
+import useBreakpoint from "../hooks/useBreakpoint";
+import breakpoints from "../utils/breakpoints";
+import PreloadImage from "../components/PreloadImage";
 
 const Crew: NextPage = () => {
-  useEffect(() => {
-    const imageSrcs = crew.map((crewMember) => crewMember.images.webp);
-    cacheImages(imageSrcs);
-  }, [])
-
   return (
     <Layout
       background="crew"
@@ -23,6 +21,9 @@ const Crew: NextPage = () => {
         <span className="number">2</span>
         MEET YOUR CREW
       </PrimaryPageTitle>
+      {crew.map((member) => (
+        <PreloadImage src={member.images.webp} />
+      ))}
       <CrewMember />
     </Layout>
   );
@@ -49,11 +50,7 @@ const CrewMember = () => {
               <h1 className={`heading-3 text-white ${styles.heading}`}>
                 {member.name}
               </h1>
-              <p
-                className={`${styles.paragraph} ${
-                  styles[member.cls]
-                }`}
-              >
+              <p className={`${styles.paragraph} ${styles[member.cls]}`}>
                 {member.bio}
               </p>
             </div>
@@ -74,17 +71,19 @@ const CrewMember = () => {
           ))}
         </div>
       </div>
-      <div
-        className="flex-grow sm:order-none -order-1 h-full"
-      >
+      <div className="flex-grow sm:order-none -order-1 h-full">
         <ImageTransition
           id={index}
           className={`${styles.imageCon} ${styles[member.cls]}`}
         >
-          <img
-            src={member.images.webp}
-            className={`${styles.image} lg:mx-0 mx-auto max-w-none`}
-          />
+          <figure className={`${styles.image} relative`}>
+            <Image
+              src={member.images.webp}
+              layout="fill"
+              objectFit="contain"
+              objectPosition={useBreakpoint(breakpoints.lg) ? "left" : "center"}
+            />
+          </figure>
         </ImageTransition>
       </div>
     </div>
