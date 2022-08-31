@@ -15,7 +15,7 @@ const Crew: NextPage = () => {
 
   return (
     <Layout
-      bgClass={styles.bg}
+      background="crew"
       className="lg:text-left text-center pb-2.5 sm:pb-0
                  lg:pb-2.5 overflow-y-hidden relative"
     >

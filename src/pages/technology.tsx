@@ -12,12 +12,24 @@ const Home: NextPage = () => {
   const tech = techs[index];
 
   return (
-    <Layout bgClass={styles.bg} className="">
+    <Layout
+      background="technology"
+    >
       <div className="relative hidden">
         {techs.map((tech, i) => (
           <Fragment key={i}>
-            <Image src={tech.images.portrait} layout="fill" priority quality={0} />
-            <Image src={tech.images.landscape} layout="fill" priority quality={0} />
+            <Image
+              src={tech.images.portrait}
+              layout="fill"
+              priority
+              quality={0}
+            />
+            <Image
+              src={tech.images.landscape}
+              layout="fill"
+              priority
+              quality={0}
+            />
           </Fragment>
         ))}
       </div>

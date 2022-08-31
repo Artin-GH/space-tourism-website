@@ -4,7 +4,10 @@ import styles from "../styles/pages/Home.module.css";
 
 const Home: NextPage = () => {
   return (
-    <Layout bgClass={styles.bg} className="pb-2.5 overflow-hidden">
+    <Layout
+      background="home"
+      className="pb-2.5 overflow-hidden"
+    >
       <header className={`${styles.hero} h-full`}>
         <div className={`container ${styles.container}`}>
           <div className={styles.half}>

@@ -10,10 +10,13 @@ const Destinations: NextPage = () => {
   useEffect(() => {
     const imageSrcs = destinations.map((dest) => dest.images.webp);
     cacheImages(imageSrcs);
-  }, [])
+  }, []);
 
   return (
-    <Layout className={`text-white pb-2.5`} bgClass={styles.bg}>
+    <Layout
+      className={`text-white pb-2.5`}
+      background="destination"
+    >
       <PrimaryPageTitle className={styles.title}>
         <span className="number">1</span>
         PICK YOUR DESTINATION
