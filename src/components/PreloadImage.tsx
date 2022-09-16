@@ -9,6 +9,7 @@ const PreloadImage: FC<{ src: string }> = (props) => {
         layout="fill"
         priority
         quality={0}
+        alt=""
       />
     </figure>
   );

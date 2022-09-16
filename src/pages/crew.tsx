@@ -82,6 +82,7 @@ const CrewMember = () => {
               layout="fill"
               objectFit="contain"
               objectPosition={useBreakpoint(breakpoints.lg) ? "left" : "center"}
+              alt={member.name}
             />
           </figure>
         </ImageTransition>

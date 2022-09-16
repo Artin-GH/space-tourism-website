@@ -31,16 +31,17 @@ const Destination = () => {
                   lg:text-left text-center`}
     >
       <div className={`${styles.half}`}>
-          <ImageAnim index={index}>
-        <figure className={`${styles.image} relative h-full`}>
+        <ImageAnim index={index}>
+          <figure className={`${styles.image} relative h-full`}>
             <Image
               src={destination.images.webp}
               layout="fill"
               objectFit="contain"
               objectPosition="left center"
+              alt={destination.name}
             />
-        </figure>
-          </ImageAnim>
+          </figure>
+        </ImageAnim>
       </div>
       <div className={`${styles.half}`}>
         <div>

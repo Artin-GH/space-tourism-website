@@ -84,6 +84,7 @@ const TechnologyItem = () => {
               layout="fill"
               objectFit="cover"
               objectPosition="center"
+              alt={tech.name}
             />
           </div>
         </Animation>

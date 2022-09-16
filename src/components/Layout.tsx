@@ -32,6 +32,7 @@ export default function Layout(props: {
           layout="fill"
           objectFit="cover"
           objectPosition="center"
+          alt="background"
         />
       </div>
       <Navbar />
