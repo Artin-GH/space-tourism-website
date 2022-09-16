@@ -19,8 +19,11 @@
 }
 
 .image {
-  width: 10.625rem;
-  margin: 0 auto;
+  --size: 10.625rem;
+  width: var(--size);
+  height: var(--size);
+  margin-left: auto;
+  margin-right: auto;
 }
 
 /* <Animation> */
@@ -94,7 +97,7 @@
   }
 
   .image {
-    width: 18.75rem;
+    --size: 18.75rem;
   }
 
   .menu {
@@ -125,7 +128,8 @@
   }
 
   .image {
-    width: 27.8125rem;
+    --size: 27.8125rem;
+    margin-left: 0;
   }
 
   .textAnimEnter {

@@ -5,13 +5,11 @@ import Layout from "../components/Layout";
 import styles from "../styles/pages/Destinations.module.css";
 import PrimaryPageTitle from "../components/PrimaryPageTitle";
 import PreloadImage from "../components/PreloadImage";
+import Image from "next/image";
 
 const Destinations: NextPage = () => {
   return (
-    <Layout
-      className={`text-white pb-2.5`}
-      background="destination"
-    >
+    <Layout className={`text-white pb-2.5`} background="destination">
       <PrimaryPageTitle className={styles.title}>
         <span className="number">1</span>
         PICK YOUR DESTINATION
@@ -33,11 +31,16 @@ const Destination = () => {
                   lg:text-left text-center`}
     >
       <div className={`${styles.half}`}>
-        <div>
           <ImageAnim index={index}>
-            <img src={destination.images.webp} className={`${styles.image}`} />
+        <figure className={`${styles.image} relative h-full`}>
+            <Image
+              src={destination.images.webp}
+              layout="fill"
+              objectFit="contain"
+              objectPosition="left center"
+            />
+        </figure>
           </ImageAnim>
-        </div>
       </div>
       <div className={`${styles.half}`}>
         <div>
