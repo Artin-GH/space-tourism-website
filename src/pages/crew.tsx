@@ -21,8 +21,8 @@ const Crew: NextPage = () => {
         <span className="number">2</span>
         MEET YOUR CREW
       </PrimaryPageTitle>
-      {crew.map((member) => (
-        <PreloadImage src={member.images.webp} />
+      {crew.map((member, i) => (
+        <PreloadImage src={member.images.webp} key={i} />
       ))}
       <CrewMember />
     </Layout>

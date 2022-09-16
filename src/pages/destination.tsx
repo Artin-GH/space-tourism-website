@@ -1,4 +1,4 @@
-import { Fragment, useEffect, useState } from "react";
+import { Fragment, useState } from "react";
 import { CSSTransition, TransitionGroup } from "react-transition-group";
 import { NextPage } from "next";
 import Layout from "../components/Layout";

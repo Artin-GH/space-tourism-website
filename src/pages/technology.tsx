@@ -11,6 +11,7 @@ import breakpoints from "../utils/breakpoints";
 import PreloadImage from "../components/PreloadImage";
 
 const Technology: NextPage = () => {
+  const isBreakpointLg = useBreakpoint(breakpoints.lg);
   return (
     <Layout background="technology">
       <PrimaryPageTitle className="!max-w-[1290px] mr-0 !px-4">
@@ -18,7 +19,7 @@ const Technology: NextPage = () => {
         SPACE LAUNCH 101
       </PrimaryPageTitle>
       {techs.map((tech, i) =>
-        useBreakpoint(breakpoints.lg) ? (
+        isBreakpointLg ? (
           <PreloadImage src={tech.images.portrait} key={i} />
         ) : (
           <PreloadImage src={tech.images.landscape} key={i} />
