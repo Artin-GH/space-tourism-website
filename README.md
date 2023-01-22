@@ -72,4 +72,4 @@ I love this concept. So I'm going to make a `Star Wars` version of this website 
 - _Frontend Mentor_ - [@Artin-GH](https://www.frontendmentor.io/profile/Artin-GH)
 - _Twitter_ - [@ArtinGhazizadeh](https://twitter.com/ArtinGhazizadeh)
 
-If you like this repository, please **like it** 💛✨
+If you like this repository, please **star it** 💛✨
