@@ -15,7 +15,7 @@ module.exports = {
       path: "/root",
       "pre-deploy-local": "",
       "post-deploy":
-        "npm install && npm build && pm2 reload ecosystem.config.js --env production",
+        "npm install && npm run build && pm2 reload ecosystem.config.js --env production",
       "pre-setup": "",
     },
   },
